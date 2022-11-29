@@ -1,0 +1,15 @@
+@import "../constants";
+
+.exercise-display {
+  grid-area: x;
+
+  background-color: $dark-background-color;
+  padding: 20px;
+
+  overflow-y: scroll;
+  white-space: pre-wrap;
+
+  .title {
+    padding-bottom: 10px;
+  }
+}

@@ -1,0 +1,31 @@
+@import "constants";
+
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: black;
+  color: $primary-color;
+  font-family: Calibri, sans-serif;
+  font-size: 1.3em;
+
+  overflow-y: hidden;
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
+
+  display: grid;
+  gap: 0;
+
+  grid-template-rows: 10% 40% auto;
+  grid-template-columns: 18% 18% auto;
+  grid-template-areas:
+    "a a a"
+    "b c x"
+    "b c y";
+}

@@ -1,0 +1,63 @@
+@import "../constants";
+
+$background-color: lighten($medium-background-color, 7%);
+
+.submission {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  height: 70px;
+  min-height: 70px;
+  width: 100%;
+  background-color: $background-color;
+  padding: 5px;
+  border-radius: 10px;
+
+  border-style: solid;
+  border-color: $background-color;
+
+  cursor: pointer;
+
+  &.selected {
+    background-color: $light-background-color;
+    border-color: $light-background-color;
+  }
+
+  &:hover {
+    border-color: $light-background-color;
+  }
+
+  .date {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .date-row {
+      width: 100%;
+    }
+  }
+
+  .score {
+    width: 8em;
+    height: 2em;
+    text-align: center;
+    background-color: $medium-background-color;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 7px;
+    border-radius: 5px;
+
+    &.pass {
+      background-color: darkgreen;
+    }
+
+    &.fail {
+      background-color: darkorange;
+    }
+
+    &.error {
+      background-color: darkred;
+    }
+  }
+}

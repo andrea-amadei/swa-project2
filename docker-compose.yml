@@ -1,0 +1,46 @@
+version: "3.4"
+
+services:
+  grader-web:
+    build: ./grader-web
+    image: grader-web
+    container_name: grader-web
+    depends_on:
+      - grader-db
+    ports:
+      - 80:3000
+    env_file:
+      - project.env
+      
+  grader-api:
+    build:
+        context: ./grader-api
+    image: grader-api
+    container_name: grader-api
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    depends_on:
+      - grader-web
+      - grader-db
+    ports:
+      - 4000:4000
+    env_file:
+      - project.env
+      
+  grader-db:
+    build: ./grader-db
+    image: grader-db
+    container_name: grader-db
+    image: postgres:15.1
+    ports:
+      - 5432:5432
+    env_file:
+      - project.env
+      
+  grader-instance:
+    build:
+      context: ./grader-instance
+      args:
+        SUBMISSION_ID: 0
+    image: grader-instance
+    container_name: grader-instance
